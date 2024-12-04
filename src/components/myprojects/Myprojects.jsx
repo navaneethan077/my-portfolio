@@ -46,8 +46,8 @@ const Myprojects = () => {
             <h3>My Portfolio(This website)</h3>
             <small className='text-light'>ReactJs</small>
             <div className="portfolio__item-cta">
-              {/* <a href="https://github.com/Thakshila-Bandara/my-portfolio" target="_blank" rel='noreferrer' className='btn'>Github</a>
-              <a href="https://thakshila-bandara.github.io/my-portfolio/" target="_blank" rel='noreferrer' className='btn btn-primary'>Visit Website</a>   */}
+              {/* <a href="" target="_blank" rel='noreferrer' className='btn'>Github</a>
+              <a href="" target="_blank" rel='noreferrer' className='btn btn-primary'>Visit Website</a>   */}
             </div>
             
         </article>
@@ -59,7 +59,7 @@ const Myprojects = () => {
             <small className='text-light'>MongoDB  | Express | React | Node. js.</small>
             <div className="portfolio__item-cta">
               <a href="https://github.com/navaneethan077/movie-api" target="_blank" rel='noreferrer' className='btn'>Github</a>
-              {/* <a href="https://thakshila-bandara.github.io/my-resume/" target="_blank" rel='noreferrer' className='btn btn-primary'>Visit Website</a>   */}
+              {/* <a href="" target="_blank" rel='noreferrer' className='btn btn-primary'>Visit Website</a>   */}
             </div>
             
         </article>

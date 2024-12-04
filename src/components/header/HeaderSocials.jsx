@@ -10,7 +10,7 @@ const HeaderSocials = () => {
 
         <a href="https://www.linkedin.com/in/navaneethan-sivakumaran/" target="_blank" rel='noreferrer'><BsLinkedin/></a>
         <a href="https://github.com/navaneethan077" target="_blank" rel='noreferrer'><BsGithub/></a>
-        {/* <a href="https://medium.com/@thakshiladb2000" target="_blank" rel='noreferrer'><BsMedium/></a> */}
+        {/* <a href="" target="_blank" rel='noreferrer'><BsMedium/></a> */}
     </div>
   )
 }

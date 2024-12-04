@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="footer__socials">
           <a href="https://www.linkedin.com/in/navaneethan-sivakumaran/"><BsLinkedin/></a>
           <a href="https://github.com/navaneethan077"><BsGithub/></a>
-          {/* <a href="https://medium.com/@thakshiladb2000"><BsMedium/></a> */}
+          {/* <a href=""><BsMedium/></a> */}
         </div>
 
         <div className="footer__copyright">
