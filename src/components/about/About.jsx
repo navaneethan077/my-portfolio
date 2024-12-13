@@ -41,7 +41,7 @@ const About = () => {
                   <small>
                     <ul>
                       <li>Full-stack developers</li>
-                      <li>Quality Assurance (QA) engineer</li>
+                      <li>Quality Assurance (QA) Engineer</li>
                     </ul>
                   </small>
               </article>
