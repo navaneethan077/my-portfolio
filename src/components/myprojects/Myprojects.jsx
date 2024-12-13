@@ -34,6 +34,7 @@ const Myprojects = () => {
             <small className='text-light'>MongoDB  | Express | React | Node. js.</small>
             <div className="portfolio__item-cta">
               <a href="https://github.com/navaneethan077/Bodimate" target="_blank" rel='noreferrer' className='btn'>Github</a>  
+              <a href="https://bodimate.vercel.app/" target="_blank" rel='noreferrer' className='btn'>Project Demo Link</a>  
              
 
             </div>
@@ -46,8 +47,8 @@ const Myprojects = () => {
             <h3>My Portfolio(This website)</h3>
             <small className='text-light'>ReactJs</small>
             <div className="portfolio__item-cta">
-              {/* <a href="" target="_blank" rel='noreferrer' className='btn'>Github</a>
-              <a href="" target="_blank" rel='noreferrer' className='btn btn-primary'>Visit Website</a>   */}
+            <a href="https://github.com/navaneethan077/my-portfolio" target="_blank" rel='noreferrer' className='btn'>Github</a>  
+            <a href="https://navaneethan05.netlify.app/" target="_blank" rel='noreferrer' className='btn'>Project Demo Link</a>
             </div>
             
         </article>
