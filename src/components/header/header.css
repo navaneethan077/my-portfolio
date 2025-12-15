@@ -1,30 +1,97 @@
-header{
+header {
 
     height: 100vh;
     padding-top: 7rem;
     overflow: hidden;
+    position: relative;
 }
 
-.header__container{
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(77, 181, 255, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.header__container {
 
     text-align: center;
     height: 100%;
     position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3rem;
+    position: relative;
+}
+
+.cursor-blink {
+    animation: blink 1s infinite;
+    color: var(--color-primary);
+}
+
+@keyframes blink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.glitch {
+    animation: glitch 0.3s ease-in-out;
 }
 
 /* Applying CSS for CTA */
 
-.cta{
+.cta {
 
-    margin-top: 2.5rem;  /*to push buttons littlebit down*/
+    margin-top: 2.5rem;
+    /*to push buttons littlebit down*/
     display: flex;
     gap: 1.2rem;
     justify-content: center;
 }
 
+.cta .btn {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.cta .btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-neon-strong);
+}
+
+.cta .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta .btn:hover::before {
+    left: 100%;
+}
+
 /* Applying CSS for HeaderSocials */
 
-.header__socials{
+.header__socials {
 
     display: flex;
     flex-direction: column;
@@ -35,17 +102,27 @@ header{
     bottom: 3rem;
 }
 
-.header__socials::after{
+.header__socials a {
+    transition: var(--transition);
+}
+
+.header__socials a:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 10px var(--color-primary));
+}
+
+.header__socials::after {
 
     content: "";
     width: 1px;
     height: 2rem;
     background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
 }
 
 /* Applying CSS for My image */
 
-.me{
+.me {
 
     background: linear-gradient(var(--color-primary), transparent);
     width: 22rem;
@@ -55,17 +132,25 @@ header{
     margin-top: 4rem;
     border-radius: 12rem 12rem 0 0;
     overflow: hidden;
-    padding: 5rem 1.5rem 1,5rem 1.5rem;
+    padding: 5rem 1.5rem 1, 5rem 1.5rem;
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition);
 }
 
-.me > img{
+.me>img {
 
     margin-left: .5rem;
+    transition: var(--transition);
+}
+
+.me:hover>img {
+    transform: scale(1.05);
 }
 
 /* Applying CSS for Scroll Down */
 
-.scroll__down{
+.scroll__down {
 
     position: absolute;
     right: -2.3rem;
@@ -73,13 +158,19 @@ header{
     transform: rotate(90deg);
     font-weight: 300;
     font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.scroll__down:hover {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 10px var(--color-neon-cyan);
 }
 
 /* Media queries for medium devices(Tablets) */
 
 @media screen and (max-width: 1024px) {
 
-    header{
+    header {
 
         height: 60vh;
     }
@@ -90,18 +181,23 @@ header{
 
 @media screen and (max-width: 600px) {
 
-    header{
+    header {
 
         height: 100vh;
     }
 
-    .header__socials, .scroll__down{
+    .header__socials,
+    .scroll__down {
 
         display: none;
     }
 
-    .me > img{
+    .me>img {
 
         margin-top: 2.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 }

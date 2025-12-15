@@ -1,10 +1,22 @@
-nav{
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gradient-neon);
+    z-index: 10000;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(77, 181, 255, 0.8);
+}
 
-    background: rgba(0, 0, 0, 0.3);
-    width: max-content; /*get the width of it's content*/
+nav {
+
+    background: var(--glass-bg);
+    width: max-content;
+    /*get the width of it's content*/
     display: block;
     padding: 0.7rem 1.7rem;
-    z-index: 2;
+    z-index: 9999;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -13,10 +25,12 @@ nav{
     gap: 0.8rem;
     border-radius: 3rem;
     backdrop-filter: blur(15px);
-    
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-neon);
+
 }
 
-nav a{
+nav a {
 
     background: transparent;
     padding: 0.9rem;
@@ -24,16 +38,41 @@ nav a{
     display: flex;
     color: var(--color-light);
     font-size: 1.1rem;
-   
+    transition: var(--transition-fast);
+    position: relative;
+
 }
 
-nav a:hover{
-
-    background: rgba(0, 0, 0, 0.4);
+nav a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--gradient-cyber);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-nav a.active{
+nav a:hover {
+
+    background: rgba(77, 181, 255, 0.1);
+    transform: translateY(-3px);
+    color: var(--color-primary);
+}
+
+nav a:hover::before {
+    opacity: 0.2;
+}
+
+nav a.active {
 
     background: var(--color-primary);
     color: var(--color-bg);
+    box-shadow: 0 0 20px rgba(77, 181, 255, 0.8),
+        0 0 30px rgba(77, 181, 255, 0.5);
+    animation: neon-pulse 2s ease-in-out infinite;
+}
+
+nav a.active::before {
+    opacity: 0;
 }
