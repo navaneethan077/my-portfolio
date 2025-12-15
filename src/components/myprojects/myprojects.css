@@ -1,38 +1,90 @@
-.portfolio__container{
+.portfolio__container {
 
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
 }
 
-.portfolio__item{
+.portfolio__item {
 
-    background: var(--color-bg-variant);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     padding: 1.2rem;
     border-radius: 2rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 
 }
 
-.portfolio__item:hover{
-
-    border-color: var(--color-primary-variant);
-    background: transparent;
+.portfolio__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-cyber);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
 }
 
-.portfolio__item-image{
+.portfolio__item:hover::before {
+    opacity: 0.1;
+}
+
+.portfolio__item:hover {
+
+    border-color: var(--color-primary);
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-neon);
+    transform: translateY(-10px);
+}
+
+.portfolio__item>* {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio__item-image {
 
     border-radius: 1.5rem;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
 }
 
-.portfolio__item h3{
+.portfolio__item-image:hover {
+    transform: scale(1.05);
+}
+
+.portfolio__item-image img {
+    transition: var(--transition);
+}
+
+.portfolio__item:hover .portfolio__item-image img {
+    transform: scale(1.1);
+}
+
+.portfolio__item h3 {
 
     margin: 1.2rem 0 .5rem;
+    color: var(--color-white);
 }
 
-.portfolio__item-cta{
+.tech-tags {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    background: rgba(77, 181, 255, 0.1);
+    border: 1px solid rgba(77, 181, 255, 0.3);
+    animation: float 3s ease-in-out infinite;
+    margin: 0.5rem 0;
+}
+
+.portfolio__item-cta {
 
     display: flex;
     margin-top: 2rem;
@@ -40,14 +92,20 @@
     gap: 1rem;
 }
 
+.portfolio__item-cta .btn {
+    flex: 1;
+    text-align: center;
+}
+
 /* Media queries for medium devices(Tablets) */
 
 @media screen and (max-width: 1024px) {
 
-    .portfolio__container{
+    .portfolio__container {
 
-       grid-template-columns: 1fr 1fr; /*50% from left 50% from right  */
-       gap: 1.2rem;
+        grid-template-columns: 1fr 1fr;
+        /*50% from left 50% from right  */
+        gap: 1.2rem;
     }
 
 }
@@ -56,7 +114,7 @@
 
 @media screen and (max-width: 600px) {
 
-    .portfolio__container{
+    .portfolio__container {
 
         grid-template-columns: 1fr;
         gap: 1rem;

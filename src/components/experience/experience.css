@@ -1,88 +1,268 @@
-.experience__container{
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+.experience__container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
-.experience__container > div{
-
-    background: var(--color-bg-variant);
-    padding: 2.4rem 5rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
-    transition: var(--transition);
-}
-
-.experience__container > div:hover{
-
-    background: transparent;
-    border-color: var(--color-primary-variant);
-    cursor: default;
-}
-
-.experience__container > div h3{
-
+.section-header {
     text-align: center;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
+    margin-bottom: 4rem;
 }
 
-.experience__content{
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    row-gap: 2rem;
+.experience__timeline-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 2rem;
 }
 
-.experience__details{
+/* Elegant vertical line */
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary),
+            transparent);
+    box-shadow: 0 0 15px var(--color-primary-variant);
+}
 
+.experience__card-wrapper {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2.5rem;
+}
+
+.experience__card-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+/* Glowing Timeline Dot */
+.timeline-dot {
+    position: absolute;
+    left: -6px;
+    /* center on 2px line */
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 2;
 }
 
-.experience__details-icon{
+.dot-inner {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
 
-    margin-top: 6px;
+.experience__card-wrapper:hover .timeline-dot {
+    background: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-primary);
+    transform: scale(1.2);
+}
+
+.experience__card-wrapper:hover .dot-inner {
+    background: var(--color-white);
+}
+
+/* Card Styling */
+.experience__card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.experience__card:hover::before {
+    transform: translateX(100%);
+}
+
+.experience__card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(77, 181, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Current Role Special Styling */
+.current .experience__card {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(77, 181, 255, 0.05), rgba(138, 43, 226, 0.05));
+    box-shadow: 0 0 20px rgba(77, 181, 255, 0.15);
+}
+
+.current .timeline-dot {
+    background: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+.current .dot-inner {
+    background: var(--color-white);
+}
+
+/* Header */
+.card-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.header-icon {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-icon {
+    font-size: 1.5rem;
     color: var(--color-primary);
 }
 
-/* Media queries for medium devices(Tablets) */
-
-@media screen and (max-width: 1024px) {
-
-    .experience__container{
-
-        grid-template-columns: 1fr;
-    }
-
-    .experience__container > div{
-
-        width: 80%;
-        padding: 2rem;
-        margin: 0 auto;
-    }
-
-    .experience__content{
-
-        padding: 1rem;
-    }
-
+.header-content {
+    flex: 1;
 }
 
-/* Media queries for small devices(Mobiles) */
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
 
+.header-content h3 {
+    font-size: 1.25rem;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-primary);
+    color: #000;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.header-content h4 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.meta-row {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-light);
+    align-items: center;
+}
+
+.separator {
+    color: var(--color-primary);
+}
+
+.period {
+    color: var(--color-neon-cyan);
+}
+
+/* List */
+.card-body ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.card-body li {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.check-icon {
+    color: var(--color-primary);
+    margin-top: 4px;
+    font-size: 1.1rem;
+    min-width: 1.1rem;
+}
+
+/* Responsive */
 @media screen and (max-width: 600px) {
+    .experience__timeline-wrapper {
+        padding-left: 1.5rem;
+    }
 
-    .experience__container{
+    .experience__card-wrapper {
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
 
+    .experience__card {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        flex-direction: column;
         gap: 1rem;
     }
 
-    .experience__container > div{
+    .header-icon {
+        width: 40px;
+        height: 40px;
+    }
 
-        width: 100%;
-        padding: 2rem 1rem;
+    .work-icon {
+        font-size: 1.2rem;
+    }
+
+    .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .header-content h3 {
+        font-size: 1.1rem;
     }
 }

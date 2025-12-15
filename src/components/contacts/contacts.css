@@ -1,4 +1,4 @@
-.container.contact__container{
+.container.contact__container {
 
     width: 65%;
     display: grid;
@@ -6,67 +6,130 @@
     gap: 12%;
 }
 
-.contact__options{
+.contact__options {
 
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-.contact__option{
+.contact__option {
 
-    background: var(--color-bg-variant);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     padding: 1.2rem;
     border-radius: 1.2rem;
     text-align: center;
-    border: 1px solid transparent;
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
 
-.contact__option:hover{
+.contact__option:hover {
 
-    background: transparent;
-    border-color: var(--color-primary-variant);
+    background: var(--glass-bg);
+    border-color: var(--color-primary);
 }
 
-.contact__option-icon{
+.contact__option-icon {
 
     font-size: 1.5rem;
     margin-bottom: .5rem;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 10px var(--color-primary));
 }
 
-.contact__option a{
+.contact__option a {
 
     margin-top: .7rem;
     display: inline-block;
     font-size: .8rem;
+    transition: var(--transition);
+}
+
+.contact__option a:hover {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 10px var(--color-neon-cyan);
 }
 
 /* Form Part */
 
-form{
+form {
 
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1.2rem;
+    border: 1px solid var(--glass-border);
 }
 
-input, textarea{
+form.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+input,
+textarea {
 
     width: 100%;
     padding: 1.5rem;
     border-radius: .5rem;
-    background: transparent;
-    border: 2px solid var(--color-primary-variant);
-    resize: none; /* avoid text area being resized */
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--glass-border);
+    resize: none;
+    /* avoid text area being resized */
     color: var(--color-white);
+    transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(77, 181, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-light);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
 }
 
 /* Media queries for medium devices(Tablets) */
 
 @media screen and (max-width: 1024px) {
 
-    .container.contact__container{
+    .container.contact__container {
 
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -79,9 +142,8 @@ input, textarea{
 
 @media screen and (max-width: 600px) {
 
-    .container.contact__container{
+    .container.contact__container {
 
         width: var(--container-width-sm);
     }
 }
-
